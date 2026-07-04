@@ -3,9 +3,14 @@ from groq import Groq
 
 # Page title setup
 st.title("Amna's AI Assistant")
+import streamlit as st
+import os
 
-# Sidebar mein API Key enter karne ka option (Ya aap yahan seedha key daal sakti hain)
-api_key = st.text_input("Enter your Groq API Key", type="password")
+# Secrets se key lein
+api_key = st.secrets["GROQ_API_KEY"]
+
+# Ab user se key maangne ki zaroorat nahi hai, 
+# aap seedha apna model use karein
 
 if api_key:
     client = Groq(api_key=api_key)
